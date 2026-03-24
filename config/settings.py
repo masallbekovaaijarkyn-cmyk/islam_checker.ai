@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_filters',
-    'drf_yasg',
+    'drf_spectacular',
     'apps.submissions',
 ]
 
@@ -81,15 +81,18 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS
 CORS_ALLOW_ALL_ORIGINS = True
 
-# DRF
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Islam Checker API',
+    'DESCRIPTION': 'API для проверки заданий студентов с помощью ИИ',
+    'VERSION': '1.0.0',
+}
 
-# JAZZMIN
 JAZZMIN_SETTINGS = {
     "site_title": "Islam Checker",
     "site_header": "Islam Checker",
