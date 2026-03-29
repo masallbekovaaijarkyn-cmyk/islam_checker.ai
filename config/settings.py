@@ -1,7 +1,8 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-
+import sys
+sys.path.insert(0, os.path.join(BASE_DIR, 'islam_checker'))
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
